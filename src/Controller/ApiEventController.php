@@ -73,18 +73,33 @@ class ApiEventController extends AbstractController
     #[Route('', name: 'create', methods: ['POST'])]
     public function createEvent(Request $request): JsonResponse
     {
+         $data = json_decode($request->getContent(), true);
+         $data['id']= rand(100, 900);
 
+        return new JsonResponse([
+            'message' => 'Event add',
+            'event' => $data],
+            Response::HTTP_CREATED);
     }
 
     #[Route('/{id}', name: 'update', methods: ['PUT'])]
     public function updateEvent(int $id, Request $request): JsonResponse
     {
         // TODO: Implement event update and refresh event list
+        $data = json_decode($request->getContent(), true);
+        $data['id']= $id;
+
+        return new JsonResponse([
+            'message' => "Event $id update",
+            'event' => $data
+        ], Response::HTTP_OK);
     }
 
     #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
     public function deleteEvent(int $id): JsonResponse
     {
-        // TODO: Implement event deletion and refresh event list
+        return new JsonResponse([
+            'message' => "Event $id delete",
+        ],Response::HTTP_NO_CONTENT);
     }
 }

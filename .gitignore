@@ -1,25 +1,35 @@
+# PhpStorm
+.idea/
+.phpunit.result.cache
 
-###> symfony/framework-bundle ###
-/.env.local
-/.env.local.php
-/.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
+
+# Symfony cache and logs
 /var/
 /vendor/
-###< symfony/framework-bundle ###
 
-###> phpunit/phpunit ###
+# Dotenv secrets and local envs
+.env.local
+.env.*.local
+.env.dev
+.env.test
+
+# Node / front assets (si tu utilises encore webpack ou npm/yarn)
+node_modules/
+public/build/
+public/bundles/
+assets/
+
+# Composer
+/composer.lock
+/symfony.lock
+
+# PHPUnit
 /phpunit.xml
-.phpunit.result.cache
-###< phpunit/phpunit ###
+/coverage/
 
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
+# Migration temp files
+migrations/.gitkeep
 
-###> symfony/asset-mapper ###
-/public/assets/
-/assets/vendor/
-###< symfony/asset-mapper ###
+# OS files
+.DS_Store
+Thumbs.db
